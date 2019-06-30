@@ -1,0 +1,42 @@
+The idea of this project was to see how we can predict cervical cancer incidence based on common risk factors. 
+
+The original dataset was downloaded from UCI repository, contained 36 variables including four response variables (
+results of four diagnostic tests), which were summed into one response variable:
+- if sum of values in diagnostic test columns was above 2, the result would be deemed Cancer Positive, 
+- and if the sum value was below 2, the patient was Cancer Negative. 
+
+For the purpose of this project, the risk factors taken into consideration were:
+- age,
+- number of sexual partners,
+- number of pregnancies,
+- number of years of hormonal contraception,
+- number of sexually transmitted diseases,
+- previous cancer diagnosis,
+- HPV (human papilommavirus),
+- Cervical intraepithelial neoplasia,
+
+The result of random forest algorithm shows the following result:
+
+Call:
+ randomForest(formula = CancerPosNeg ~ ., data = train_mydata,      ntree = 500, mtry = 2, importance = TRUE) 
+               Type of random forest: classification
+                     Number of trees: 500
+No. of variables tried at each split: 2
+
+        OOB estimate of  error rate: 4.66%
+Confusion matrix:
+               CancerNegative CancerPositive class.error
+CancerNegative            654              0           0
+CancerPositive             32              0           1
+
+I see a very good OOB error rate, which tells us that in roughly 95% of the cases the prediction was correct. 
+However, I am confused with confusiton matrix result, showing 0 for cancer positive classificaiton in cancer positive cases (?)
+
+Per the variable importance plot, the number of pregnancies would be the most error-prone variable, 
+while 'Years of Hormonal Contraception' is the best to use for predictions in this project. 
+
+PS:
+Hope the interpretation of project results is correct. 
+I don't have statistical background and it took a lot of additional efforts for me (lots of youtube tutorials) 
+to learn things to be able to write this report :)  
+
